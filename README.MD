@@ -21,9 +21,23 @@ _local.sets({
 });
 
 
+document.querySelector('#all').innerHTML = JSON.stringify(
+  _local.gets(),
+  null,
+  2
+);
+
+
+document.querySelector('#somekeys').innerHTML = JSON.stringify(
+  _local.gets(['fei','age']),
+  null,
+  2
+);
+
 console.log(_local.get('test1'));
 console.log(_local.gets());
 console.log(_local.gets(['fei','age']));
+
 ```
 
 ## todos:

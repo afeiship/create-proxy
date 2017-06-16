@@ -9,6 +9,14 @@
 <body>
   <script src="../node_modules/next-js-core2/dist/next-js-core2.js"></script>
   <script src="../src/next-abstract-storage.js"></script>
+
+  <div id="gets">
+    <h1>Get All</h1>
+    <pre><code id="all"></code></pre>
+    <h1>Get Some keys</h1>
+    <pre><code id="somekeys"></code></pre>
+  </div>
+
   <script>
     var _local = new nx.AbstractStorage({
       engine: 'localStorage',
@@ -26,6 +34,19 @@
       }]
     });
 
+
+    document.querySelector('#all').innerHTML = JSON.stringify(
+      _local.gets(),
+      null,
+      2
+    );
+
+
+    document.querySelector('#somekeys').innerHTML = JSON.stringify(
+      _local.gets(['fei','age']),
+      null,
+      2
+    );
 
     console.log(_local.get('test1'));
     console.log(_local.gets());
