@@ -54,11 +54,11 @@
           keys = Object.keys(storeEngine);
           length_ = this.prefix.length + 1;
           nx.each(keys,function(_,item){
-            if( item.indexOf(this.prefix+DOT) === 0 ){
+            if( this.prefix && item.indexOf(this.prefix+DOT) === 0 ){
               allNsKeys.push( item.slice(length_) );
             }
           },this);
-          return allNsKeys;
+          return  allNsKeys.length ? allNsKeys : keys;
         }
         return inKeys;
       }
