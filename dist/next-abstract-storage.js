@@ -1,13 +1,16 @@
 (function () {
 
   var global = global || this;
-
   var nx = global.nx || require('next-js-core2');
+  var EMPTY_STR = '';
+  var DOT = '.';
+
+
   var NxAbstractStorage = nx.declare('nx.AbstractStorage', {
     methods:{
       init: function(inOptions){
         this.engine = inOptions.engine;
-        this.prefix = inOptions.prefix || '';
+        this.prefix = inOptions.prefix || EMPTY_STR;
       },
       set: function(inKey,inValue){
         global[this.engine].setItem(this.__key(inKey), nx.stringify(inValue));
@@ -40,7 +43,7 @@
       },
       __key:function (inKey){
         var prefix = this.prefix;
-        return prefix ? [prefix,'.',inKey].join('') : inKey;
+        return prefix ? [prefix,DOT,inKey].join(EMPTY_STR) : inKey;
       },
       __keys: function(inKeys){
         var storeEngine = global[this.engine];
@@ -51,7 +54,7 @@
           keys = Object.keys(storeEngine);
           length_ = this.prefix.length + 1;
           nx.each(keys,function(_,item){
-            if( item.indexOf(this.prefix+'.') === 0 ){
+            if( item.indexOf(this.prefix+DOT) === 0 ){
               allNsKeys.push( item.slice(length_) );
             }
           },this);
