@@ -2,6 +2,12 @@
 > An abstract storage based on next.
 
 
+## implementation:
++ [next-local-storage](https://github.com/afeiship/next-local-storage)
++ [next-session-storage](https://github.com/afeiship/next-session-storage)
++ [next-weapp-storage](https://github.com/afeiship/next-weapp-storage)
+
+
 ## usage:
 ```js
 var _local = new nx.AbstractStorage({
