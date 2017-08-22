@@ -8,6 +8,8 @@
 </head>
 <body>
   <script src="../node_modules/next-js-core2/dist/next-js-core2.js"></script>
+  <script src="../node_modules/next-is/dist/next-is.js"></script>
+  <script src="../node_modules/next-json/dist/next-json.js"></script>
   <script src="../src/next-abstract-storage.js"></script>
 
   <div id="gets">
@@ -19,7 +21,7 @@
 
   <script>
     var _local = new nx.AbstractStorage({
-      engine: 'localStorage',
+      engine: localStorage,
       prefix: 'my'
     });
 
