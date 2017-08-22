@@ -18,6 +18,7 @@
           get: inOptions.get || 'getItem',
           set: inOptions.set || 'setItem',
           remove: inOptions.remove || 'removeItem',
+          clear: inOptions.clear || 'clear'
         };
       },
       set: function(inKey,inValue){
@@ -48,6 +49,9 @@
         nx.each(keys,function(_,key){
           this.clear(key);
         },this);
+      },
+      empty: function(){
+        this.engine[this.api.clear]();
       },
       __key:function (inKey){
         var prefix = this.prefix;

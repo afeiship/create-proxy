@@ -17,6 +17,9 @@
     <pre><code id="all"></code></pre>
     <h1>Get Some keys</h1>
     <pre><code id="somekeys"></code></pre>
+
+    <p id='cleard'>CLear MSG will be here!</p>
+    <button id="btn2">Empty The Storage</button>
   </div>
 
   <script>
@@ -49,6 +52,12 @@
       null,
       2
     );
+
+
+    document.querySelector('#btn2').onclick = function(){
+      _local.empty();
+      document.querySelector('#cleard').innerHTML = 'ALL HAS EMPTY!';
+    };
 
     console.log(_local.get('test1'));
     console.log(_local.gets());
