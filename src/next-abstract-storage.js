@@ -53,6 +53,9 @@
       empty: function(){
         this.engine[this.api.clear]();
       },
+      keys: function(){
+        return Object.keys(storeEngine);
+      },
       __key:function (inKey){
         var prefix = this.prefix;
         return prefix ? [prefix,DOT,inKey].join(EMPTY_STR) : inKey;
@@ -63,7 +66,7 @@
         var self = this;
         var allNsKeys = [];
         if(!nx.isArray(inKeys)){
-          keys = Object.keys(storeEngine);
+          keys = this.keys();
           length_ = this.prefix.length + 1;
           nx.each(keys,function(_,item){
             if( this.prefix && item.indexOf(this.prefix+DOT) === 0 ){
