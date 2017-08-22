@@ -5,7 +5,7 @@
 ## usage:
 ```js
 var _local = new nx.AbstractStorage({
-  engine: 'localStorage',
+  engine: localStorage,
   prefix: 'my'
 });
 
@@ -20,19 +20,22 @@ _local.sets({
   }]
 });
 
-
 document.querySelector('#all').innerHTML = JSON.stringify(
   _local.gets(),
   null,
   2
 );
 
-
 document.querySelector('#somekeys').innerHTML = JSON.stringify(
   _local.gets(['fei','age']),
   null,
   2
 );
+
+document.querySelector('#btn2').onclick = function(){
+  _local.empty();
+  document.querySelector('#cleard').innerHTML = 'ALL HAS EMPTY!';
+};
 
 console.log(_local.get('test1'));
 console.log(_local.gets());
