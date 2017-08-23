@@ -4,7 +4,9 @@
   var nx = global.nx || require('next-js-core2');
   var EMPTY_STR = '';
   var DOT = '.';
-  var _ = nx.import(['is','json']);
+
+  //import basic package:
+  nx.import(['is','json']);
 
   var NxAbstractStorage = nx.declare('nx.AbstractStorage', {
     methods:{
