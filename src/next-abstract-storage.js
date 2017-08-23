@@ -4,10 +4,9 @@
   var nx = global.nx || require('next-js-core2');
   var EMPTY_STR = '';
   var DOT = '.';
-  var _;
 
-  _ = nx.is || require('next-is');
-  _ = nx.parse || require('next-json');
+  //import basic package:
+  nx.import(['is','json']);
 
   var NxAbstractStorage = nx.declare('nx.AbstractStorage', {
     methods:{
@@ -54,7 +53,7 @@
         this.engine[this.api.clear]();
       },
       keys: function(){
-        return Object.keys(storeEngine);
+        return Object.keys(this.engine);
       },
       __key:function (inKey){
         var prefix = this.prefix;
