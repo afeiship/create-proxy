@@ -4,10 +4,10 @@
   var nx = global.nx || require('next-js-core2');
   var EMPTY_STR = '';
   var DOT = '.';
-  var _ ;
-  _ = nx.is || require('next-is');
-  _ = nx.json || require('next-json');
 
+  // import packages:
+  require('next-is');
+  require('next-json');
 
   var NxAbstractStorage = nx.declare('nx.AbstractStorage', {
     methods:{
