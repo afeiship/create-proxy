@@ -19,7 +19,7 @@
           set: inOptions.set || 'setItem',
           remove: inOptions.remove || 'removeItem',
           clear: inOptions.clear || 'clear',
-          stringify: nx.stringify
+          stringify: inOptions.stringify || nx.stringify
         };
       },
       set: function(inKey,inValue){
