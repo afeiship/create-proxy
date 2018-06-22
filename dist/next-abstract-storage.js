@@ -18,11 +18,12 @@
           get: inOptions.get || 'getItem',
           set: inOptions.set || 'setItem',
           remove: inOptions.remove || 'removeItem',
-          clear: inOptions.clear || 'clear'
+          clear: inOptions.clear || 'clear',
+          stringify: nx.stringify
         };
       },
       set: function(inKey,inValue){
-        this.engine[this.api.set](this.__key(inKey), nx.stringify(inValue));
+        this.engine[this.api.set](this.__key(inKey), this.api.stringify(inValue));
       },
       sets: function(inObject){
         nx.each(inObject, function (key, value) {
