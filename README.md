@@ -54,3 +54,4 @@ console.log(_local.gets(['fei', 'age']));
 ## resources:
 
 - https://www.npmjs.com/package/jest-localstorage-mock
+- https://stackoverflow.com/questions/11485420/how-to-mock-localstorage-in-javascript-unit-tests
