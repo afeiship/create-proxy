@@ -48,6 +48,3 @@ console.log(_local.gets());
 console.log(_local.gets(['fei','age']));
 
 ```
-
-## todos:
-- [ ] todo list..
