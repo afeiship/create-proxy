@@ -8,7 +8,8 @@
     "email": "1290657123@qq.com"
   },
   "scripts": {
-    "build": "gulp"
+    "build": "gulp",
+    "test": "jest"
   },
   "main": "dist/next-abstract-storage.js",
   "license": "MIT",
