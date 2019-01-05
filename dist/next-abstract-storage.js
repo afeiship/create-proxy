@@ -7,6 +7,7 @@
   // import packages:
   var _ = nx.is || require('next-is');
   _ = nx.json || require('next-json');
+  _ = nx.slice2str || require('next-slice2str');
 
   var NxAbstractStorage = nx.declare('nx.AbstractStorage', {
     methods: {
@@ -24,11 +25,10 @@
       set: function(inKey, inValue) {
         var index = inKey.indexOf('.');
         if (index > -1) {
-          var headKey = inKey.slice(0, index);
-          var path = inKey.slice(index + 1);
-          var context = this.get(headKey) || {};
-          nx.set(context, path, inValue);
-          this.set(headKey, context);
+          var paths = nx.slice2str(inKey, index, 1);
+          var context = this.get(paths[0]) || {};
+          nx.set(context, paths[1], inValue);
+          this.set(paths[0], context);
         } else {
           this.engine[this.api.set](this.__key(inKey), this.api.stringify(inValue));
         }
@@ -45,10 +45,9 @@
       get: function(inKey) {
         var index = inKey.indexOf('.');
         if (index > -1) {
-          var headKey = inKey.slice(0, index);
-          var path = inKey.slice(index + 1);
-          var context = this.get(headKey) || {};
-          return nx.get(context, path);
+          var paths = nx.slice2str(inKey, index, 1);
+          var context = this.get(paths[0]) || {};
+          return nx.get(context, paths[1]);
         } else {
           var value = this.engine[this.api.get](this.__key(inKey));
           return nx.parse(value);

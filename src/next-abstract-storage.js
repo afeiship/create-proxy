@@ -25,7 +25,7 @@
       set: function(inKey, inValue) {
         var index = inKey.indexOf('.');
         if (index > -1) {
-          var paths = nx.slice2str(inKey, index);
+          var paths = nx.slice2str(inKey, index, 1);
           var context = this.get(paths[0]) || {};
           nx.set(context, paths[1], inValue);
           this.set(paths[0], context);
@@ -45,7 +45,7 @@
       get: function(inKey) {
         var index = inKey.indexOf('.');
         if (index > -1) {
-          var paths = nx.slice2str(inKey, index);
+          var paths = nx.slice2str(inKey, index, 1);
           var context = this.get(paths[0]) || {};
           return nx.get(context, paths[1]);
         } else {
