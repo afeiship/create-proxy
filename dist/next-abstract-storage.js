@@ -2,7 +2,7 @@
   var global = global || window || self || Function('return this')();
   var nx = global.nx || require('next-js-core2');
   var EMPTY_STR = '';
-  var DOT = '.';
+  var SEPARATOR = '@';
 
   // import packages:
   var _ = nx.is || require('next-is');
@@ -22,7 +22,16 @@
         };
       },
       set: function(inKey, inValue) {
-        this.engine[this.api.set](this.__key(inKey), this.api.stringify(inValue));
+        var index = inKey.indexOf('.');
+        if (index > -1) {
+          var headKey = inKey.slice(0, index);
+          var path = inKey.slice(index + 1);
+          var context = this.get(headKey) || {};
+          nx.set(context, path, inValue);
+          this.set(headKey, context);
+        } else {
+          this.engine[this.api.set](this.__key(inKey), this.api.stringify(inValue));
+        }
       },
       sets: function(inObject) {
         nx.each(
@@ -34,8 +43,16 @@
         );
       },
       get: function(inKey) {
-        var value = this.engine[this.api.get](this.__key(inKey));
-        return nx.parse(value);
+        var index = inKey.indexOf('.');
+        if (index > -1) {
+          var headKey = inKey.slice(0, index);
+          var path = inKey.slice(index + 1);
+          var context = this.get(headKey) || {};
+          return nx.get(context, path);
+        } else {
+          var value = this.engine[this.api.get](this.__key(inKey));
+          return nx.parse(value);
+        }
       },
       gets: function(inKeys) {
         var result = {};
@@ -70,7 +87,7 @@
       },
       __key: function(inKey) {
         var prefix = this.prefix;
-        return prefix ? [prefix, DOT, inKey].join(EMPTY_STR) : inKey;
+        return prefix ? [prefix, SEPARATOR, inKey].join(EMPTY_STR) : inKey;
       },
       __keys: function(inKeys) {
         var length_, keys;
@@ -81,7 +98,7 @@
           nx.each(
             keys,
             function(_, item) {
-              if (this.prefix && item.indexOf(this.prefix + DOT) === 0) {
+              if (this.prefix && item.indexOf(this.prefix + SEPARATOR) === 0) {
                 allNsKeys.push(item.slice(length_));
               }
             },

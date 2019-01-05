@@ -9,8 +9,8 @@ test('test method set', () => {
   store1.set('k1', 'value1');
   store1.set('k2', { name: 233 });
 
-  var k1 = JSON.parse(localStorage.getItem('my.k1'));
-  var k2 = JSON.parse(localStorage.getItem('my.k2'));
+  var k1 = JSON.parse(localStorage.getItem('my@k1'));
+  var k2 = JSON.parse(localStorage.getItem('my@k2'));
 
   expect(k1).toBe('value1');
   expect(k2).toEqual({ name: 233 });
@@ -56,4 +56,14 @@ test('test method empty', () => {
   store1.empty();
   var rs = store1.gets();
   expect(rs).toEqual({});
+});
+
+test('test set/get with path', () => {
+  store1.set('k3.b.c', 'b-c-vlaue');
+  store1.set('kf.0.test', { name: 'fei' });
+  expect(store1.get('k3.b.c')).toBe('b-c-vlaue');
+  expect(store1.get('k3.b.d')).toBeUndefined();
+  expect(store1.get('kf.0.test')).toEqual({ name: 'fei' });
+  expect(store1.get('kf.0.test.name')).toBe('fei');
+  // console.log(store1.gets());
 });
