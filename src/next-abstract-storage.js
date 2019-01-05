@@ -5,7 +5,7 @@
   var DOT = '.';
 
   // import packages:
-  var _ = nx.is || require('next-s');
+  var _ = nx.is || require('next-is');
   _ = nx.json || require('next-json');
 
   var NxAbstractStorage = nx.declare('nx.AbstractStorage', {
@@ -22,10 +22,7 @@
         };
       },
       set: function(inKey, inValue) {
-        this.engine[this.api.set](
-          this.__key(inKey),
-          this.api.stringify(inValue)
-        );
+        this.engine[this.api.set](this.__key(inKey), this.api.stringify(inValue));
       },
       sets: function(inObject) {
         nx.each(
