@@ -12,7 +12,9 @@
     "test": "jest"
   },
   "jest": {
-    "setupFiles": ["jest-localstorage-mock"]
+    "setupFiles": [
+      "jest-localstorage-mock"
+    ]
   },
   "main": "dist/next-abstract-storage.js",
   "license": "MIT",
@@ -31,6 +33,7 @@
   "dependencies": {
     "next-is": "github:afeiship/next-is",
     "next-js-core2": "github:afeiship/next-js-core2",
-    "next-json": "github:afeiship/next-json"
+    "next-json": "github:afeiship/next-json",
+    "next-slice2str": "github:afeiship/next-slice2str"
   }
 }
