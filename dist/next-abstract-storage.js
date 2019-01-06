@@ -26,7 +26,7 @@
         };
       },
       serialize: function(inTarget) {
-        return nx.serialize(inTarget);
+        return nx.stringify(inTarget);
       },
       set: function(inKey, inValue) {
         var index = inKey.indexOf('.');
