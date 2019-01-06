@@ -15,9 +15,9 @@
         this.engine = inOptions.engine;
         this.prefix = inOptions.prefix || EMPTY_STR;
         this.options = inOptions;
-        this.setAccessorApi();
+        this.setAccessor();
       },
-      setAccessorApi: function() {
+      setAccessor: function() {
         this.api = {
           get: this.options.get || 'getItem',
           set: this.options.set || 'setItem',
