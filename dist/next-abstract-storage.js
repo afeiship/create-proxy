@@ -14,13 +14,19 @@
       init: function(inOptions) {
         this.engine = inOptions.engine;
         this.prefix = inOptions.prefix || EMPTY_STR;
+        this.options = inOptions;
+        this.setAccessorApi();
+      },
+      setAccessorApi: function() {
         this.api = {
-          get: inOptions.get || 'getItem',
-          set: inOptions.set || 'setItem',
-          remove: inOptions.remove || 'removeItem',
-          clear: inOptions.clear || 'clear',
-          stringify: inOptions.stringify || nx.stringify
+          get: this.options.get || 'getItem',
+          set: this.options.set || 'setItem',
+          remove: this.options.remove || 'removeItem',
+          clear: this.options.clear || 'clear'
         };
+      },
+      stringify: function(inTarget) {
+        return nx.stringify(inTarget);
       },
       set: function(inKey, inValue) {
         var index = inKey.indexOf('.');
@@ -30,7 +36,7 @@
           nx.set(context, paths[1], inValue);
           this.set(paths[0], context);
         } else {
-          this.engine[this.api.set](this.__key(inKey), this.api.stringify(inValue));
+          this.engine[this.api.set](this.__key(inKey), this.stringify(inValue));
         }
       },
       sets: function(inObject) {
