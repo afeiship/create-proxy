@@ -25,8 +25,8 @@
           clear: this.options.clear || 'clear'
         };
       },
-      stringify: function(inTarget) {
-        return nx.stringify(inTarget);
+      serialize: function(inTarget) {
+        return nx.serialize(inTarget);
       },
       set: function(inKey, inValue) {
         var index = inKey.indexOf('.');
@@ -36,7 +36,7 @@
           nx.set(context, paths[1], inValue);
           this.set(paths[0], context);
         } else {
-          this.engine[this.accessor.set](this.__key(inKey), this.stringify(inValue));
+          this.engine[this.accessor.set](this.__key(inKey), this.serialize(inValue));
         }
       },
       sets: function(inObject) {
