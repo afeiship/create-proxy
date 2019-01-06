@@ -18,7 +18,7 @@
         this.setAccessor();
       },
       setAccessor: function() {
-        this.api = {
+        this.accessor = {
           get: this.options.get || 'getItem',
           set: this.options.set || 'setItem',
           remove: this.options.remove || 'removeItem',
@@ -36,7 +36,7 @@
           nx.set(context, paths[1], inValue);
           this.set(paths[0], context);
         } else {
-          this.engine[this.api.set](this.__key(inKey), this.stringify(inValue));
+          this.engine[this.accessor.set](this.__key(inKey), this.stringify(inValue));
         }
       },
       sets: function(inObject) {
@@ -55,7 +55,7 @@
           var context = this.get(paths[0]) || {};
           return nx.get(context, paths[1]);
         } else {
-          var value = this.engine[this.api.get](this.__key(inKey));
+          var value = this.engine[this.accessor.get](this.__key(inKey));
           return nx.parse(value);
         }
       },
@@ -72,7 +72,7 @@
         return result;
       },
       clear: function(inKey) {
-        this.engine[this.api.remove](this.__key(inKey));
+        this.engine[this.accessor.remove](this.__key(inKey));
       },
       clears: function(inKeys) {
         var keys = this.__keys(inKeys);
@@ -85,7 +85,7 @@
         );
       },
       empty: function() {
-        this.engine[this.api.clear]();
+        this.engine[this.accessor.clear]();
       },
       keys: function() {
         return Object.keys(this.engine);
