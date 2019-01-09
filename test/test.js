@@ -12,6 +12,8 @@ test('test method set', () => {
   var k1 = JSON.parse(localStorage.getItem('my@k1'));
   var k2 = JSON.parse(localStorage.getItem('my@k2'));
 
+  console.log(store1.keys(), store1.__keys());
+
   expect(k1).toBe('value1');
   expect(k2).toEqual({ name: 233 });
 });

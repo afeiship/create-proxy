@@ -6,6 +6,8 @@
 - [next-session-storage](https://github.com/afeiship/next-session-storage)
 - [next-weapp-storage](https://github.com/afeiship/next-weapp-storage)
 
+## apis:
+
 ## usage:
 ```js
 var _local = new nx.AbstractStorage({
