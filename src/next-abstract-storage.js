@@ -5,7 +5,7 @@
   var SEPARATOR = '@';
 
   // import packages:
-  var _ = nx.is || require('next-is');
+  var _ = nx.isArray || require('next-is-array');
   _ = nx.json || require('next-json');
   _ = nx.slice2str || require('next-slice2str');
 

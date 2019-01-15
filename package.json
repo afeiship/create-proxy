@@ -31,7 +31,7 @@
     "yargs": "^4.7.1"
   },
   "dependencies": {
-    "next-is": "github:afeiship/next-is",
+    "next-is-array": "github:afeiship/next-is-array",
     "next-js-core2": "github:afeiship/next-js-core2",
     "next-json": "github:afeiship/next-json",
     "next-slice2str": "github:afeiship/next-slice2str"
