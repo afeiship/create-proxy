@@ -1,14 +1,17 @@
 # next-abstract-storage
 > An abstract storage based on next.
 
+## installation
+```bash
+npm install -S @feizheng/next-abstract-storage
+```
+
 ## implementation:
 - [next-local-storage](https://github.com/afeiship/next-local-storage)
 - [next-session-storage](https://github.com/afeiship/next-session-storage)
 - [next-weapp-storage](https://github.com/afeiship/next-weapp-storage)
 
-## apis:
-
-## usage:
+## usage
 ```js
 var _local = new nx.AbstractStorage({
   engine: localStorage,
@@ -48,6 +51,6 @@ console.log(_local.gets());
 console.log(_local.gets(['fei', 'age']));
 ```
 
-## resources:
+## resources
 - https://www.npmjs.com/package/jest-localstorage-mock
 - https://stackoverflow.com/questions/11485420/how-to-mock-localstorage-in-javascript-unit-tests

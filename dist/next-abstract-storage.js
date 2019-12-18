@@ -1,13 +1,22 @@
+/*!
+ * name: @feizheng/next-abstract-storage
+ * description: An abstract storage based on next.
+ * url: https://github.com/afeiship/next-abstract-storage
+ * version: 1.0.0
+ * date: 2019-12-18 19:26:11
+ * license: MIT
+ */
+
 (function() {
-  var global = global || window || self || Function('return this')();
-  var nx = global.nx || require('next-js-core2');
+  var global = global || this || window || Function('return this')();
+  var nx = global.nx || require('@feizheng/next-js-core2');
+
   var EMPTY_STR = '';
   var SEPARATOR = '@';
 
   // import packages:
-  var _ = nx.isArray || require('next-is-array');
-  _ = nx.json || require('next-json');
-  _ = nx.slice2str || require('next-slice2str');
+  var _ = nx.json || require('@feizheng/next-json');
+  _ = nx.slice2str || require('@feizheng/next-slice2str');
 
   var NxAbstractStorage = nx.declare('nx.AbstractStorage', {
     methods: {
@@ -97,7 +106,7 @@
       __keys: function(inKeys) {
         var length_, keys;
         var allNsKeys = [];
-        if (!nx.isArray(inKeys)) {
+        if (!Array.isArray(inKeys)) {
           keys = this.keys();
           length_ = this.prefix.length + 1;
           nx.each(
@@ -120,3 +129,5 @@
     module.exports = NxAbstractStorage;
   }
 })();
+
+//# sourceMappingURL=next-abstract-storage.js.map
