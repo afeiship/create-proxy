@@ -2,8 +2,8 @@
  * name: @feizheng/next-abstract-storage
  * description: An abstract storage based on next.
  * url: https://github.com/afeiship/next-abstract-storage
- * version: 1.0.0
- * date: 2019-12-18 19:26:11
+ * version: 2.0.0
+ * date: 2020-03-20 13:14:44
  * license: MIT
  */
 
@@ -80,20 +80,20 @@
         );
         return result;
       },
-      clear: function(inKey) {
+      del: function(inKey) {
         this.engine[this.accessor.remove](this.__key(inKey));
       },
-      clears: function(inKeys) {
+      dels: function(inKeys) {
         var keys = this.__keys(inKeys);
         nx.each(
           keys,
           function(_, key) {
-            this.clear(key);
+            this.del(key);
           },
           this
         );
       },
-      empty: function() {
+      clear: function() {
         this.engine[this.accessor.clear]();
       },
       keys: function() {

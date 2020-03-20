@@ -71,20 +71,20 @@
         );
         return result;
       },
-      clear: function(inKey) {
+      del: function(inKey) {
         this.engine[this.accessor.remove](this.__key(inKey));
       },
-      clears: function(inKeys) {
+      dels: function(inKeys) {
         var keys = this.__keys(inKeys);
         nx.each(
           keys,
           function(_, key) {
-            this.clear(key);
+            this.del(key);
           },
           this
         );
       },
-      empty: function() {
+      clear: function() {
         this.engine[this.accessor.clear]();
       },
       keys: function() {

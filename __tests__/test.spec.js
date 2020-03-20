@@ -11,9 +11,7 @@ test('test method set', () => {
 
   var k1 = JSON.parse(localStorage.getItem('my@k1'));
   var k2 = JSON.parse(localStorage.getItem('my@k2'));
-
-  console.log(store1.keys(), store1.__keys());
-
+  // console.log(store1.keys(), store1.__keys());
   expect(k1).toBe('value1');
   expect(k2).toEqual({ name: 233 });
 });
@@ -41,7 +39,7 @@ test('test method sets/gets', () => {
 });
 
 test('test method clear', () => {
-  store1.clear('cn');
+  store1.del('cn');
 
   var rs = store1.gets();
 
@@ -49,13 +47,13 @@ test('test method clear', () => {
 });
 
 test('test method clears', () => {
-  store1.clears(['name', 'k1']);
+  store1.dels(['name', 'k1']);
   var rs = store1.gets();
   expect(rs).toEqual({ k2: { name: 233 } });
 });
 
 test('test method empty', () => {
-  store1.empty();
+  store1.clear();
   var rs = store1.gets();
   expect(rs).toEqual({});
 });

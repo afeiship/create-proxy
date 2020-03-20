@@ -6,6 +6,17 @@
 npm install -S @feizheng/next-abstract-storage
 ```
 
+## apis
+| api   | args        | description              |
+| ----- | ----------- | ------------------------ |
+| get   | key         | Get value by key.        |
+| gets  | [key1,key2] | Get values by keys.      |
+| set   | key,value   | Set key/value.           |
+| sets  | obj         | Set multiple key/values. |
+| del   | key         | Delete value by key.     |
+| dels  | [key1,key2] | Delete multiple values.  |
+| clear | -           | Clear the store.         |
+
 ## implementation:
 - [next-local-storage](https://github.com/afeiship/next-local-storage)
 - [next-session-storage](https://github.com/afeiship/next-session-storage)
