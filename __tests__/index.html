@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
+
 <body>
-  <script src="../node_modules/next-js-core2/dist/next-js-core2.js"></script>
-  <script src="../node_modules/next-is/dist/next-is.js"></script>
-  <script src="../node_modules/next-json/dist/next-json.js"></script>
-  <script src="../src/next-abstract-storage.js"></script>
+  <script src="/@feizheng/next-js-core2/dist/next-js-core2.js"></script>
+  <script src="/@feizheng/next-is/dist/next-is.js"></script>
+  <script src="/@feizheng/next-json/dist/next-json.js"></script>
+  <script src="/next-abstract-storage.js"></script>
 
   <div id="gets">
     <h1>Get All</h1>
@@ -28,13 +30,13 @@
       prefix: 'my'
     });
 
-    _local.set('test1','test1Value');
+    _local.set('test1', 'test1Value');
 
     _local.sets({
-      fei:'test',
-      age:108,
-      items:[{
-        son:'feifei',
+      fei: 'test',
+      age: 108,
+      items: [{
+        son: 'feifei',
         age: 0
       }]
     });
@@ -48,21 +50,22 @@
 
 
     document.querySelector('#somekeys').innerHTML = JSON.stringify(
-      _local.gets(['fei','age']),
+      _local.gets(['fei', 'age']),
       null,
       2
     );
 
 
-    document.querySelector('#btn2').onclick = function(){
+    document.querySelector('#btn2').onclick = function () {
       _local.empty();
       document.querySelector('#cleard').innerHTML = 'ALL HAS EMPTY!';
     };
 
     console.log(_local.get('test1'));
     console.log(_local.gets());
-    console.log(_local.gets(['fei','age']));
+    console.log(_local.gets(['fei', 'age']));
 
   </script>
 </body>
+
 </html>
