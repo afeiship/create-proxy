@@ -26,6 +26,7 @@ npm install -S @feizheng/next-abstract-storage
 - [next-local-storage](https://github.com/afeiship/next-local-storage)
 - [next-session-storage](https://github.com/afeiship/next-session-storage)
 - [next-weapp-storage](https://github.com/afeiship/next-weapp-storage)
+- [next-gm-storage](https://github.com/afeiship/next-gm-storage)
 
 ## usage
 ```js
