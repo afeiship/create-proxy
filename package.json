@@ -38,5 +38,11 @@
   "dependencies": {
     "@jswork/next-json": "^1.0.0",
     "@jswork/next-slice2str": "^1.0.0"
-  }
+  },
+  "keywords": [
+    "html5",
+    "storage",
+    "abstract",
+    "next"
+  ]
 }

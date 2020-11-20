@@ -3,7 +3,7 @@
  * description: An abstract storage based on next.
  * homepage: https://github.com/afeiship/next-abstract-storage
  * version: 1.0.0
- * date: 2020-11-20 16:32:46
+ * date: 2020-11-20 16:34:06
  * license: MIT
  */
 
