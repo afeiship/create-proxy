@@ -3,12 +3,12 @@
  * description: An abstract storage based on next.
  * homepage: https://github.com/afeiship/next-abstract-storage
  * version: 1.0.0
- * date: 2020-11-20 16:34:06
+ * date: 2021-01-06 21:37:15
  * license: MIT
  */
 
 (function() {
-  var global = global || this || window || Function('return this')();
+  var global = global || window || Function('return this')();
   var nx = global.nx || require('@jswork/next');
 
   var EMPTY_STR = '';
