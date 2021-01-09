@@ -2,8 +2,8 @@
  * name: @jswork/next-abstract-storage
  * description: An abstract storage based on next.
  * homepage: https://github.com/afeiship/next-abstract-storage
- * version: 1.0.1
- * date: 2021-01-06 21:37:54
+ * version: 1.0.2
+ * date: 2021-01-09 16:35:16
  * license: MIT
  */
 
