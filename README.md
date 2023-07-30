@@ -15,7 +15,15 @@ npm install @jswork/create-proxy
 ```js
 import createProxy from '@jswork/create-proxy';
 
-// usage goes here.
+const person = {
+  name: 'John Doe',
+  age: 42,
+  nationality: 'American',
+};
+
+const state = createProxy(person, (newValue, oldValue, key, target)=>{
+  console.log(newValue, oldValue, key, target);
+});
 ```
 
 ## license
