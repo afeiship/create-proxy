@@ -1,19 +1,20 @@
 import createProxy from '../src';
 
 describe('api.basic', () => {
-  test('normail single value case', () => {
+  test('01.Set new value', () => {
     const person = {
       name: 'John Doe',
       age: 42,
       nationality: 'American',
     };
 
-    const state = createProxy(person, (st, a, b, c) => {
-      console.log('state change : ', st, a, b, c);
+    const state = createProxy(person, (newValue, oldValue, key, target) => {
+      expect(newValue).toBe('Jane Doe');
+      expect(oldValue).toBe('John Doe');
+      expect(key).toBe('name');
+      expect(target).toBe(person);
     });
 
     state.name = 'Jane Doe';
-
-    expect(state.name).toBe('Jane Doe');
   });
 });
