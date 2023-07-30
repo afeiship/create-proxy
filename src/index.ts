@@ -11,7 +11,7 @@ const createProxy = (obj, updateFn) => {
     set(target, key, value) {
       const oldValue = target[key];
       if (oldValue !== value) {
-        updateFn(value, oldValue, key, target);
+        updateFn(target, key, value);
       }
       return Reflect.set(target, key, value);
     },

@@ -8,7 +8,8 @@ describe('api.basic', () => {
       nationality: 'American',
     };
 
-    const state = createProxy(person, (newValue, oldValue, key, target) => {
+    const state = createProxy(person, (target, key, newValue) => {
+      const oldValue = target[key];
       expect(newValue).toBe('Jane Doe');
       expect(oldValue).toBe('John Doe');
       expect(key).toBe('name');
