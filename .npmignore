@@ -10,14 +10,11 @@ gulpfile.js
 
 .editorconfig
 .prettierrc
-Gemfile
+.prettierignore
+.release-it.json
+typedoc.js
+tsconfig.json
 jest.config.js
-LICENSE.txt
-Rakefile
-.vscode
-.release-it.json
-docs
-
-# vscode localhistory
-.history
-.release-it.json
+babel.config.js
+yarn-error.log
+yarn.lock

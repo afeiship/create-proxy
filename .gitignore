@@ -3,12 +3,12 @@ bower_components
 coverage
 npm-debug.log
 yarn.lock
-Gemfile.lock
-yarn-error.log
 package-lock.json
+pnpm-lock.yaml
 .DS_Store
 .idea
 .vscode
+dist
 
-# vscode localhistory
-.history
+.tmp
+docs
