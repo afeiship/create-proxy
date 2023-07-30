@@ -1,12 +1,25 @@
 declare var wx: any;
 
-const CreateProxy = (): void => {
-  console.log('hello');
+const createProxy = (obj, updateFn) => {
+  return new Proxy(obj, {
+    get(target, key) {
+      if (typeof target[key] === 'object' && target[key] !== null) {
+        return createProxy(target[key], updateFn);
+      }
+      return target[key];
+    },
+    set(target, key, value) {
+      if (target[key] !== value) {
+        updateFn(target, key, value);
+      }
+      return Reflect.set(target, key, value);
+    },
+  });
 };
 
 // for commonjs es5 require
 if (typeof module !== 'undefined' && module.exports && typeof wx === 'undefined') {
-  module.exports = CreateProxy;
+  module.exports = createProxy;
 }
 
-export default CreateProxy;
+export default createProxy;
