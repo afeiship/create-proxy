@@ -1,6 +1,6 @@
 {
   "name": "@jswork/create-proxy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create proxy with callback.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -51,5 +51,9 @@
       ],
       "@babel/preset-typescript"
     ]
-  }
+  },
+  "keywords": [
+    "create",
+    "proxy"
+  ]
 }
