@@ -1,5 +1,7 @@
 import createProxy from '../src';
 
+let deepGet = (obj, key) => (key.split('.').map((p) => (obj = obj && obj[p])), obj);
+
 describe('api.basic', () => {
   test('01.Set new value', () => {
     const person = {
@@ -17,5 +19,24 @@ describe('api.basic', () => {
     });
 
     state.name = 'Jane Doe';
+  });
+
+  test('02.Set deep should get dot path', () => {
+    const person = {
+      name: 'John Doe',
+      age: 42,
+      contact: {
+        email: 'test@dev.com',
+        phone: '123456789',
+      },
+    };
+
+    const state = createProxy(person, (target, key, newValue, opts) => {
+      // console.log('newValue/key/target/opts: ', newValue, key, target, opts);
+      expect(opts.path).toBe('contact.email');
+      expect(opts.oldValue).toBe('test@dev.com');
+    });
+
+    state.contact.email = 'test@163.com';
   });
 });
