@@ -21,7 +21,8 @@ const person = {
   nationality: 'American',
 };
 
-const state = createProxy(person, (newValue, oldValue, key, target)=>{
+const state = createProxy(person, (target, key, newValue)=>{
+  const oldValue = target[key];
   console.log(newValue, oldValue, key, target);
 });
 ```
