@@ -1,6 +1,6 @@
 {
   "name": "@jswork/create-proxy",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Create proxy with callback.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
