@@ -39,4 +39,17 @@ describe('api.basic', () => {
 
     state.contact.email = 'test@163.com';
   });
+
+  test('03.null object', () => {
+    const person = null;
+    const state = createProxy(person, (target, key, newValue) => {});
+
+    expect(state).toBe(null);
+  });
+
+  test('04.not plain object', ()=>{
+    const person = 'string';
+    const state = createProxy(person, (target, key, newValue) => {});
+    expect(state).toBe('string');
+  })
 });

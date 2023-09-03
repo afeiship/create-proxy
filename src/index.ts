@@ -1,8 +1,13 @@
 declare var wx: any;
 
 const MSG_SYMBOL = 'Symbol is not supported';
+const isPlainObject = (obj: any) => Object.prototype.toString.call(obj) === '[object Object]';
 
 function createProxy(obj, updateFn, path = '') {
+  // null object
+  if (obj === null) return obj;
+  if (!isPlainObject(obj)) return obj;
+
   return new Proxy(obj, {
     get(target, key) {
       if (typeof key === 'symbol') throw new Error(MSG_SYMBOL);
